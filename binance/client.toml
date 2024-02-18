@@ -1,0 +1,38 @@
+[apikey]
+key = ""
+secret = ""
+
+[Account]
+
+[GetOrder]
+symbol = "XRPBUSD"
+origClientOrderId = "coint-11-234"
+#OrderId           #int64  `url:"orderId,omitempty"`
+#OrigClientOrderId string `url:"origClientOrderId,omitempty"`
+#NewClientOrderId  string `url:"newClientOrderId,omitempty"`
+
+[MyTrades]
+symbol = "XRPBUSD"
+orderId = 172889704
+
+[Depth]
+symbol = "XRPBUSD"
+limit = 5
+
+[GetFundingAsset]
+#asset = "LTC"
+needBtcValuation = true
+
+[ApiRestrictions]
+
+[TickerPrice]
+
+[Ticker24hr]
+#symbol = "BTCUSDT"
+
+[PostUserDataStream]
+
+[Klines]
+symbol = "BTCUSDT"
+limit = 1
+interval = "1m"

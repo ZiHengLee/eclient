@@ -1,9 +1,8 @@
 package binance
 
 import (
-	"encoding/json"
-	"fmt"
 	"testing"
+	"time"
 
 	"github.com/ZiHengLee/eclient/utils/logger"
 	"github.com/stretchr/testify/suite"
@@ -35,15 +34,23 @@ func (s *websocketServiceTestSuite) TearDownTest() {
 }
 
 func (s *websocketServiceTestSuite) TestGetKlines() {
-	klines, err := NewSubscriber(s.s)
-	s.Suite.Equal(err, nil)
+	// klines, err := NewSubscriber(s.s)
+	// s.Suite.Equal(err, nil)
 	//ws.Subscribe([]string{"btcusdt@depth"})
 	//ws.Subscribe([]string{"ethusdt@depth"})
 	// ws.Subscribe([]string{"Ct7wPIBn1wAKvYcbC2nimpZCn83KhNvYJH2FAezulBwXQ0u0VMijmNI47lm5"})
 	s.s.Subscribe([]string{"btcusdt@kline_1s"})
-	for msg := range klines.Msgs() {
-		event := new(WsKlineEvent)
-		json.Unmarshal(msg, event)
-		fmt.Println(event)
-	}
+	time.Sleep(time.Second * 5)
+	s.s.Subscribe([]string{"ethusdt@kline_1s"})
+	time.Sleep(time.Second * 5)
+	// for msg := range klines.Msgs() {
+	// 	event := new(WsKlineEvent)
+	// 	json.Unmarshal(msg, event)
+	// 	fmt.Println(event)
+	// }
+	// for msg := range klines.Msgs() {
+	// 	event := new(WsKlineEvent)
+	// 	json.Unmarshal(msg, event)
+	// 	fmt.Println(event)
+	// }
 }

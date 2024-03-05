@@ -18,6 +18,11 @@ objs = \
 	   tickerprice.api.go \
 	   ticker24hr.api.go \
 	   kline.api.go \
+	   usd_kline.api.go \
+	   usd_account.api.go \
+	   usd_allorders.api.go \
+	   usd_openorder.api.go \
+	   usd_order.api.go \
 
 api: $(objs)
 	@echo Done

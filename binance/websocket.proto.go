@@ -1,5 +1,11 @@
 package binance
 
+type WsEventType string
+
+const (
+	EventKline WsEventType = "kline"
+)
+
 type WsKlineEvent struct {
 	Event  string  `json:"e"`
 	Time   int64   `json:"E"`

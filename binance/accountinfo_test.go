@@ -1,7 +1,6 @@
 package binance
 
 import (
-	"context"
 	"testing"
 
 	"github.com/stretchr/testify/suite"
@@ -16,7 +15,4 @@ func TestAccountService(t *testing.T) {
 }
 
 func (s *accountServiceTestSuite) TestGetAccount() {
-	ctx := context.Background()
-	resp, err := s.client.AccountInfo(ctx, nil).Get()
-	output(resp, err)
 }

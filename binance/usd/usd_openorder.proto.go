@@ -1,8 +1,10 @@
 // 查询当前挂单 (USER_DATA)
-package binance
+package usd
 
 import (
 	"context"
+
+	"github.com/ZiHengLee/eclient/binance"
 )
 
 const UsdOpenOrderMethod = "GET"
@@ -14,7 +16,7 @@ const UsdOpenOrderUrl = "https://fapi.binance.com/fapi/v1/openOrder"
 2.查询的订单如果已经成交或取消，将返回报错 "Order does not exist."
 */
 type UsdOpenOrderParam struct {
-	BaseParam
+	binance.BaseParam
 	Symbol            string `url:"symbol"`
 	OrigClientOrderId string `url:"origClientOrderId,omitempty"` //用户自定义的订单号
 	OrderId           int64  `url:"orderId,omitempty"`           //系统订单号

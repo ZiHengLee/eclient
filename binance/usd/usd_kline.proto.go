@@ -1,8 +1,10 @@
 // 获取历史k线数据
-package binance
+package usd
 
 import (
 	"context"
+
+	"github.com/ZiHengLee/eclient/binance"
 )
 
 const UsdKlineMethod = "GET"
@@ -10,7 +12,7 @@ const UsdKlineMethod = "GET"
 const UsdKlineUrl = "https://fapi.binance.com/fapi/v1/klines"
 
 type UsdKlineParam struct {
-	BaseParam
+	binance.BaseParam
 	Symbol    string `url:"symbol"`
 	Limit     int64  `url:"limit,omitempty"` //默认 500; 最大 1000.
 	Interval  string `url:"interval,omitempty"`

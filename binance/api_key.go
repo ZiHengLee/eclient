@@ -12,11 +12,11 @@ import (
 type ApiKey struct {
 	Key string `json:"key" yaml:"key" toml:"key"`
 
-	secret []byte
+	Secret []byte
 }
 
 func (k ApiKey) Sign(body string) string {
-	mac := hmac.New(sha256.New, k.secret)
+	mac := hmac.New(sha256.New, k.Secret)
 	mac.Write([]byte(body))
 	sum := mac.Sum(nil)
 	return hex.EncodeToString(sum)

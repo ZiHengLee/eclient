@@ -1,8 +1,10 @@
 // 下单
-package binance
+package usd
 
 import (
 	"context"
+
+	"github.com/ZiHengLee/eclient/binance"
 )
 
 const UsdOrderMethod = "POST"
@@ -45,7 +47,7 @@ selfTradePreventionMode 仅在 timeInForce为IOC或GTC或GTD时生效.
 极端行情时，timeInForce为GTD的订单自动取消可能有一定延迟
 */
 type UsdOrderParam struct {
-	BaseParam
+	binance.BaseParam
 	Symbol              string `json:"symbol"`                        // 交易对
 	Side                string `json:"side"`                          // 买卖方向 SELL, BUY
 	PositionSide        string `json:"positionSide,omitempty"`        // 持仓方向

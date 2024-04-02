@@ -1,8 +1,10 @@
 // 获取历史所有订单
-package binance
+package usd
 
 import (
 	"context"
+
+	"github.com/ZiHengLee/eclient/binance"
 )
 
 const UsdAllOrdersMethod = "GET"
@@ -14,7 +16,7 @@ const UsdAllOrdersUrl = "https://fapi.binance.com/fapi/v1/allOrders"
 2.默认查询最近7天内的数据
 */
 type UsdAllOrdersParam struct {
-	BaseParam
+	binance.BaseParam
 	Symbol    string `url:"symbol"`
 	Limit     int64  `url:"orderId,omitempty"` //默认 500; 最大 1000.
 	Interval  string `url:"interval,omitempty"`

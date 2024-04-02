@@ -1,7 +1,7 @@
-// 本代码由脚本根据usd_openorder.proto.go和tmpl_api.go文件自动生成
+// 本代码由脚本根据usd_openorder.proto.go和usd_tmpl_api.go文件自动生成
 // 请不要直接修改本文件
 
-package binance
+package usd
 
 import (
 	"context"

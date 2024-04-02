@@ -1,4 +1,4 @@
-package binance
+package usd
 
 import (
 	"context"
@@ -6,8 +6,28 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ZiHengLee/eclient/binance"
+	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 )
+
+type baseTestSuite struct {
+	suite.Suite
+	client    *Client
+	apiKey    string
+	secretKey string
+}
+
+func (s *baseTestSuite) r() *require.Assertions {
+	return s.Require()
+}
+
+func (s *baseTestSuite) SetupTest() {
+	s.apiKey = "ABGIfT4VzEiqerwziXSNi38Jjm9xAU7fWkYxIYtG2LzcO1aSosap4IHCD3rbAilo"
+	s.secretKey = "ZHVGW0yeEQfqm3m9ktgZGbjVa6szBQ4ECL8Te3Icd69e26mnoENKjJxEtS44fvaE"
+	cli := NewClient(s.apiKey, s.secretKey)
+	s.client = cli
+}
 
 type usdTestSuite struct {
 	baseTestSuite
@@ -18,14 +38,14 @@ func TestUsdService(t *testing.T) {
 }
 func (s *usdTestSuite) TestGetAccount() {
 	ctx := context.Background()
-	param := &UsdAccountParam{BaseParam: BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000}}
+	param := &UsdAccountParam{BaseParam: binance.BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000}}
 	_, err := s.client.UsdAccount(ctx, param).Get()
 	s.Equal(nil, err)
 }
 
 func (s *usdTestSuite) TestGetAllOrders() {
 	ctx := context.Background()
-	param := &UsdAllOrdersParam{BaseParam: BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000}}
+	param := &UsdAllOrdersParam{BaseParam: binance.BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000}}
 	resp, err := s.client.UsdAllOrders(ctx, param).Get()
 	s.Equal(nil, err)
 	fmt.Println(resp.GetData())
@@ -34,7 +54,7 @@ func (s *usdTestSuite) TestGetAllOrders() {
 func (s *usdTestSuite) TestGetOpenOrder() {
 	ctx := context.Background()
 	param := &UsdOpenOrderParam{
-		BaseParam: BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000},
+		BaseParam: binance.BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000},
 		Symbol:    "BTCUSDT",
 		OrderId:   279134299467,
 	}
@@ -46,7 +66,7 @@ func (s *usdTestSuite) TestGetOpenOrder() {
 func (s *usdTestSuite) TestOpenOrder() {
 	ctx := context.Background()
 	param := &UsdOrderParam{
-		BaseParam:    BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000},
+		BaseParam:    binance.BaseParam{Timestamp: time.Now().UnixMilli(), RecvWindow: 5000},
 		Symbol:       "BTCUSDT",
 		Side:         "BUY",
 		PositionSide: "LONG",

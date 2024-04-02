@@ -34,5 +34,6 @@ needBtcValuation = true
 
 [Klines]
 symbol = "BTCUSDT"
-limit = 1
+limit = 5
 interval = "1m"
+startTime = 1552377320000

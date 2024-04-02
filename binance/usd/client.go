@@ -1,4 +1,4 @@
-package binance
+package usd
 
 import (
 	"context"
@@ -7,13 +7,14 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/ZiHengLee/eclient/binance"
 	"github.com/ZiHengLee/eclient/utils/crypto"
 	"github.com/ZiHengLee/eclient/utils/httpclient"
 	"github.com/ZiHengLee/eclient/utils/logger"
 )
 
 type Client struct {
-	auth *ApiKey
+	auth *binance.ApiKey
 	cli  *httpclient.HttpClient
 }
 
@@ -29,7 +30,7 @@ func NewClient(key, secret string) (c *Client) {
 		return
 	}
 	return &Client{
-		auth: &ApiKey{
+		auth: &binance.ApiKey{
 			Key:    key,
 			Secret: asecret,
 		},
@@ -68,12 +69,12 @@ func decrypt(s string) (ret []byte, err error) {
 }
 
 func (c *Client) send(ctx context.Context, req *http.Request) (reply *httpclient.Reply) {
-	// logger.Info("binance client send:%v %v", req.Method, req.URL.String())
+	logger.Info("binance client send:%v %v", req.Method, req.URL.String())
 	reply = c.cli.Send(req)
 	return
 }
 
-func (c *Client) sendParam(ctx context.Context, method, url string, param IParam) (reply *httpclient.Reply, err error) {
+func (c *Client) sendParam(ctx context.Context, method, url string, param binance.IParam) (reply *httpclient.Reply, err error) {
 	req, err := c.auth.NewRequest(method, url, param)
 	if err != nil {
 		logger.Warn("create request err:%v", err)

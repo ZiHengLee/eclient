@@ -1,4 +1,4 @@
-package binance
+package usd
 
 import (
 	"encoding/json"
@@ -52,7 +52,7 @@ func (r Reply) Get(base *BaseResp, resp IResp) (err error) {
 		return
 	}
 
-	// logger.Info("binance resp:%#v", *res)
+	logger.Info("binance resp:%#v", *res)
 	if base != nil {
 		for k, v := range res.Header {
 			if strings.HasPrefix(k, "X-Mbx-Used-Weight") && len(v) > 0 {
@@ -74,7 +74,7 @@ func (r Reply) Get(base *BaseResp, resp IResp) (err error) {
 	if err != nil {
 		return
 	}
-	// logger.Info("binance resp body:%v", string(dat))
+	logger.Info("binance resp body:%v", string(dat))
 	if len(dat) > 0 {
 		err = ErrInvalidJsonResp
 		if resp != nil {

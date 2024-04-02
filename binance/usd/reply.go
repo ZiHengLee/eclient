@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ZiHengLee/eclient/utils/httpclient"
-	"github.com/ZiHengLee/eclient/utils/logger"
+	"github.com/slowly-richer/eclient/utils/httpclient"
+	"github.com/slowly-richer/eclient/utils/logger"
 )
 
 var (

@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/ZiHengLee/eclient/utils/logger"
+	"github.com/slowly-richer/eclient/utils/logger"
 )
 
 func callPanic() {

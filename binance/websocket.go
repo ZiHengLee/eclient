@@ -8,7 +8,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/ZiHengLee/eclient/utils/logger"
+	"github.com/slowly-richer/eclient/utils/logger"
 )
 
 type Subscriber struct {

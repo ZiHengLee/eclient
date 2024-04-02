@@ -3,7 +3,7 @@ package binance
 import (
 	"context"
 
-	"github.com/ZiHengLee/eclient/utils/number"
+	"github.com/slowly-richer/eclient/utils/number"
 )
 
 const DepthMethod = "GET"

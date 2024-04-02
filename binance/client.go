@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/ZiHengLee/eclient/utils/crypto"
-	"github.com/ZiHengLee/eclient/utils/httpclient"
-	"github.com/ZiHengLee/eclient/utils/logger"
+	"github.com/slowly-richer/eclient/utils/crypto"
+	"github.com/slowly-richer/eclient/utils/httpclient"
+	"github.com/slowly-richer/eclient/utils/logger"
 )
 
 type Client struct {

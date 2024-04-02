@@ -1,4 +1,4 @@
-module github.com/ZiHengLee/eclient
+module github.com/slowly-richer/eclient
 
 go 1.21.3
 

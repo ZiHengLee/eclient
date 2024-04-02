@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ZiHengLee/eclient/utils/logger"
+	"github.com/slowly-richer/eclient/utils/logger"
 	"github.com/stretchr/testify/suite"
 )
 

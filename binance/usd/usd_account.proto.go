@@ -4,7 +4,7 @@ package usd
 import (
 	"context"
 
-	"github.com/ZiHengLee/eclient/binance"
+	"github.com/slowly-richer/eclient/binance"
 )
 
 const UsdAccountMethod = "GET"

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ZiHengLee/eclient/binance"
+	"github.com/slowly-richer/eclient/binance"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 )

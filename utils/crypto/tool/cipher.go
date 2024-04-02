@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ZiHengLee/eclient/utils/crypto"
+	"github.com/slowly-richer/eclient/utils/crypto"
 )
 
 const skey = `-----BEGIN RSA PRIVATE KEY-----

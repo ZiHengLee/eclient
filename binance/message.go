@@ -1,7 +1,7 @@
 package binance
 
 import (
-	"github.com/ZiHengLee/eclient/utils/number"
+	"github.com/slowly-richer/eclient/utils/number"
 )
 
 type BaseStreamMsg struct {

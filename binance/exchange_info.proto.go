@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	//"git.coinracing.com/coint/strade/utils/logger"
-	"github.com/ZiHengLee/eclient/utils/number"
+	"github.com/slowly-richer/eclient/utils/number"
 )
 
 const ExchangeInfoMethod = "GET"

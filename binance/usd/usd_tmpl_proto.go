@@ -1,6 +1,6 @@
 package usd
 
-import "github.com/ZiHengLee/eclient/binance"
+import "github.com/slowly-richer/eclient/binance"
 
 const TmplNameMethod = ""
 

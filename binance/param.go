@@ -3,7 +3,7 @@ package binance
 import (
 	"context"
 
-	"github.com/ZiHengLee/eclient/utils/time"
+	"github.com/slowly-richer/eclient/utils/time"
 )
 
 type IParam interface {

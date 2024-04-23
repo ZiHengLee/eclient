@@ -1,25 +1,13 @@
-package binance
+package eastmoney
 
 import (
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/hex"
+	"fmt"
 	"net/http"
 
 	"github.com/google/go-querystring/query"
 )
 
 type ApiKey struct {
-	Key string `json:"key" yaml:"key" toml:"key"`
-
-	Secret []byte
-}
-
-func (k ApiKey) Sign(body string) string {
-	mac := hmac.New(sha256.New, k.Secret)
-	mac.Write([]byte(body))
-	sum := mac.Sum(nil)
-	return hex.EncodeToString(sum)
 }
 
 func (k ApiKey) BuildQuery(param IParam) (q string, err error) {
@@ -45,6 +33,7 @@ func (k ApiKey) NewRequest(method, uri string, param IParam) (req *http.Request,
 			url += "?" + q
 		}
 	}
+	fmt.Println(url)
 	req, err = http.NewRequest(method, url, nil)
 	if err != nil {
 		return
